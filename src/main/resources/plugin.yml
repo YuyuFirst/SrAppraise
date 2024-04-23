@@ -1,0 +1,10 @@
+name: SrAppraise
+version: '${project.version}'
+main: com.yuyu.srappraise.SrAppraise
+depend:
+  - SrItem
+commands:
+  srappraise:
+    description: Appraise command
+    aliases: [ sra ]
+    permission: sritem.command
