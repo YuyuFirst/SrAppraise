@@ -34,7 +34,7 @@ public class AppraiseManager {
 
     public void open(Player player,String guiName){
         //获取鉴定的窗口
-        AppraiseScreen screen = new AppraiseScreen(getAppraiseInventory(),guiName);
+        AppraiseGuiService screen = new AppraiseGuiService(getAppraiseInventory(),guiName);
         //获取gui的配置,此处会把读取到的gui配置传到ForgeScreen的构造类中
         GermGuiScreen packscreen = GermGuiScreen.getGermGuiScreen("player_inventory-forge", getForgePlayerInventory());
 
@@ -42,6 +42,5 @@ public class AppraiseManager {
         //为玩家打开鉴定窗口和背包窗口
         packscreen.openGui(player);
         screen.openChildGui(player);
-
     }
 }
