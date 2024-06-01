@@ -1,5 +1,6 @@
 package com.yuyu.srappraise;
 
+
 import com.sakurarealm.sritem.bukkit.command.CommandBase;
 import com.yuyu.srappraise.command.OpenCommand;
 import com.yuyu.srappraise.config.ConfigManager;

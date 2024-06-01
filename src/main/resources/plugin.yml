@@ -7,4 +7,4 @@ commands:
   srappraise:
     description: Appraise command
     aliases: [ sra ]
-    permission: sritem.command
+    permission: srappraose.command

@@ -24,10 +24,15 @@ public class AppraiseManager {
     }
 
     public static ConfigurationSection getForgePlayerInventory() {
-        return GermGuiService.getGermGui("forge", "player_inventory-forge");
+        return GermGuiService.getGermGui("appraise", "player_inventory-appraise");
     }
     public static ConfigurationSection getAppraiseInventory() {
         return GermGuiService.getGermGui("appraise", "appraise");
+    }
+
+    public static ConfigurationSection getAppraiseGif(){
+        return GermGuiService.getGermGui("appraise", "appraise_gif");
+
     }
 
 

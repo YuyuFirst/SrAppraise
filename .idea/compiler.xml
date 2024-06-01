@@ -10,8 +10,5 @@
         <module name="SrAppraise" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="SrAppraise" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
