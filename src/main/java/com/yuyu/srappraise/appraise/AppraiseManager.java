@@ -4,7 +4,10 @@ import com.germ.germplugin.api.dynamic.gui.GermGuiScreen;
 import com.sakurarealm.sritem.germ.GermGuiService;
 import lombok.Getter;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+
+import java.io.File;
 
 /**
  * @BelongsProject: SrAppraise
@@ -23,16 +26,29 @@ public class AppraiseManager {
     private AppraiseManager() {
     }
 
+    public static ConfigurationSection getGermGui(String directoryPath, String guiName) {
+        if (directoryPath != null && !directoryPath.startsWith(File.separator))
+            directoryPath = File.separator + directoryPath;
+
+        return YamlConfiguration.loadConfiguration(
+                new File(GermGuiService.germPluginFilePath.getAbsolutePath()
+                        + File.separator + "gui" + directoryPath + File.separator
+                        + guiName + ".yml")
+        ).getConfigurationSection(guiName);
+    }
+
     public static ConfigurationSection getForgePlayerInventory() {
-        return GermGuiService.getGermGui("appraise", "player_inventory-appraise");
+        return AppraiseManager.getGermGui( "appraise","player_inventory-appraise");
     }
     public static ConfigurationSection getAppraiseInventory() {
-        return GermGuiService.getGermGui("appraise", "appraise");
+        return AppraiseManager.getGermGui( "appraise","appraise");
     }
 
     public static ConfigurationSection getAppraiseGif(){
-        return GermGuiService.getGermGui("appraise", "appraise_gif");
-
+        return AppraiseManager.getGermGui( "appraise","appraise_gif");
+    }
+    public static ConfigurationSection getTouMingButton(){
+        return AppraiseManager.getGermGui( "appraise","touming");
     }
 
 
