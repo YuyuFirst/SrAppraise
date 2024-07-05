@@ -117,10 +117,12 @@ public class AppraiseGuiService extends GermGuiScreen {
         GermGuiSlot slot_biomass = this.germGuiSlotHashMap.get("slotConsume");
         GermGuiCanvas canvas = (GermGuiCanvas) getGuiPart("utility");
         GermGuiButton button_consume = (GermGuiButton) canvas.getGuiPart("button_consume");
-
+//        button_consume.setDefaultPath("local<->textures/gui/appraise/touming.gif");
+//        button_consume.setHoverPath("local<->textures/gui/appraise/touming.gif");
 
         button_consume.registerCallbackHandler((player, germGuiSlot) -> {
 
+            //验证产物槽上面是否存在没拿走的产物
             for (int i = 1;i<=5;i++){
                 String slot = "slot_product_"+i;
                 GermGuiSlot Germslot = this.germGuiSlotHashMap.get(slot);
@@ -149,6 +151,7 @@ public class AppraiseGuiService extends GermGuiScreen {
             //这个是item的名字
             String itemName = title.substring(title.indexOf('l') + 1);
 
+            //此处通过表示存在可鉴定的产物
             if (SrAppraise.getConfigManager().getAppraiseItemMap().containsKey(itemName)){
 
                 itemStackHashMap.clear();
@@ -375,6 +378,7 @@ public class AppraiseGuiService extends GermGuiScreen {
                     }
 
                     int timeRun = 9 / itemStacks.size();
+
                     ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
 
                     AtomicInteger j = new AtomicInteger(0);

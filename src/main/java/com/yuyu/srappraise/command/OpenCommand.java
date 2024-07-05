@@ -28,26 +28,24 @@ public class OpenCommand implements SubCommand {
             }
         }
 
-        if (strings.length < 3){
-            commandSender.sendMessage(ChatColor.RED+"正确的格式为:/srappraise open 姓名 GUIname");
+        if (strings.length < 2){
+            commandSender.sendMessage(ChatColor.RED+"正确的格式为:/srappraise open 姓名 ");
             return;
         }
 
 
         Player player = Bukkit.getPlayer(strings[1]);
         if (player == null){
-            commandSender.sendMessage(ChatColor.RED+"玩家"+strings[2]+"不存在!");
+            commandSender.sendMessage(ChatColor.RED+"玩家"+strings[1]+"不存在!");
             return;
         }
 
-        String gui = strings[2];
 
-        if (gui.equalsIgnoreCase("appraise")){
+
+
             //为玩家打开GUI列表
-            AppraiseManager.getInstance().open(player,gui);
-        }else {
-            commandSender.sendMessage(ChatColor.RED+"请输入正确的GUI名字");
-        }
+            AppraiseManager.getInstance().open(player);
+
 
     }
 }
